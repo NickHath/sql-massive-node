@@ -9,8 +9,11 @@ require('dotenv').config();
 const app = express();
 let port = 3000;
 
+const productCtrl = require('./products_controller');
+
 massive(process.env.CONNECTION_STRING)
        .then(db => app.set('db', db));
+
 
 // middleware
 app.use(bodyParser.json());
